@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<br/>
+<br/>
+<br/>
+<a href="http://localhost:8080/add"> Add new user</a>
+<br/>
+<br/>
+<br/>
+<table>
+    <tr>
+        <th>N</th>
+        <th>id</th>
+        <th>name</th>
+        <th>surName</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="user, state:${listUsers}">
+        <td th:text="${state.count}"></td>
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getSurName()}"></td>
+        <td><a th:href="@{http://localhost:8080/edit/{id}(id=${user.getId()})}">Edit</a></td>
+        <td><a th:href="@{http://localhost:8080/delete/{id}(id=${user.getId()})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
